@@ -1,39 +1,47 @@
-import { getTranslation } from "./config.js";
+import { getTranslation } from chrome.runtime.getURL("config.js");
+
 
 class CodeTranslator {
     constructor() {
         this.tooltip = null;
         this.init();
     }
-
     init() {
         document.addEventListener("mouseover", (event) => {
-            // Target <pre>, <code>, or elements with common code-related classes
-            const target = event.target.closest("pre, code, [class*='code'], [class*='syntax'], [data-code]");
-            if (target) {
-                this.showTooltip(event, target);
+            const target = event.target;
+        
+            // Prevent cross-origin frame errors
+            try {
+                if (window.origin !== event.origin) return;
+            } catch (e) {
+                console.warn("Cross-origin access blocked:", e);
+                return;
+            }
+        
+            // Check if the hovered element contains text
+            if (target && target.nodeType === Node.ELEMENT_NODE) {
+                const text = target.textContent.trim();
+                const translatedText = getTranslation(text);
+        
+                if (text !== translatedText) {
+                    this.showTooltip(event, translatedText);
+                }
             }
         });
 
         document.addEventListener("mouseout", () => this.removeTooltip());
     }
 
-    showTooltip(event, element) {
+    showTooltip(event, translatedText) {
         if (this.tooltip) this.tooltip.remove();
 
-        const originalText = element.innerText;
-        const translatedText = this.translateCode(originalText);
-
+        // Create tooltip element
         this.tooltip = document.createElement("div");
         this.tooltip.className = "translation-tooltip";
         this.tooltip.innerText = translatedText;
 
         document.body.appendChild(this.tooltip);
         this.positionTooltip(event);
-    }
-
-    translateCode(code) {
-        return code.split(/\s+/).map(getTranslation).join(" ");
     }
 
     positionTooltip(event) {
