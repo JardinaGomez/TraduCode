@@ -1,4 +1,3 @@
-// Import configuration - detects code, translates it and displays it as a tooltip
 import { getTranslation } from "./config.js";
 
 class CodeTranslator {
@@ -9,7 +8,8 @@ class CodeTranslator {
 
     init() {
         document.addEventListener("mouseover", (event) => {
-            const target = event.target.closest("pre, code");
+            // Target <pre>, <code>, or elements with common code-related classes
+            const target = event.target.closest("pre, code, [class*='code'], [class*='syntax'], [data-code]");
             if (target) {
                 this.showTooltip(event, target);
             }

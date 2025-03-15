@@ -1,15 +1,38 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
-    <title>Code Translator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TraduCode</title>
     <style>
-        body { width: 220px; font-family: Arial, sans-serif; padding: 15px; }
-        button { background: #007bff; color: white; border: none; padding: 10px; width: 100%; cursor: pointer; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #toggle {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #toggle:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
+
 <body>
-    <h3>Code Translator</h3>
+    <h1>TraduCode</h1>
     <button id="toggle">Enable Translations</button>
-    <script src="popup.js"></script>
 </body>
+<script src="popup.js"></script>
+
 </html>
