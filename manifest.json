@@ -4,33 +4,43 @@
     "version": "1.0.0",
     "description": "Automatically translates programming code and instructions into Spanish.",
     "permissions": [
+        "activeTab",
         "storage",
-        "scripting"
+        "scripting",
+        "declarativeNetRequest"
     ],
     "host_permissions": [
+        "https://www.geeksforgeeks.org/*",
         "<all_urls>"
     ],
-    "content_security_policy": {
-        "extension_pages": "script-src 'self'; object-src 'self';"
-    },
+    "web_accessible_resources": [
+        {
+            "resources": ["config.js", "translations.json", "styles.css"],
+            "matches": ["<all_urls>"]
+        }
+    ],
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "background.js",
+        "type": "module"
     },
     "content_scripts": [
         {
-            "matches": [
-                "<all_urls>"
-            ],
-            "js": [
-                "content.js"
-            ],
-            "css": [
-                "styles.css"
-            ],
-            "run_at": "document_end",
-            "type": "module"
+            "matches": ["<all_urls>"],
+            "js": ["content.js"],
+            "css": ["styles.css"],
+            "run_at": "document_idle",
+            "all_frames": true
         }
     ],
+    "declarative_net_request": {
+        "rule_resources": [
+            {
+                "id": "ruleset_1",
+                "enabled": true,
+                "path": "rules.json"
+            }
+        ]
+    },
     "action": {
         "default_popup": "popup.html",
         "default_icon": {

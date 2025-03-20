@@ -5,6 +5,12 @@ const TRANSLATIONS = {
     else: "sino",
     for: "para",
     while: "mientras",
+    function: "función",
+    return: "retornar",
+    print: "imprimir"
 };
+    
+export function getTranslation(word) {
+    return TRANSLATIONS[word] || word;
+}
 
-export const getTranslation = (word) => TRANSLATIONS[word] || word;
