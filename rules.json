@@ -25,5 +25,16 @@
           "urlFilter": "||ads.linkedin.com^",
           "resourceTypes": ["image", "script"]
       }
-  }
+  },
+  
+  {
+    "id": 100,
+    "priority": 1,
+    "action": { "type": "allow" },
+    "condition": {
+        "urlFilter": "||loops-in-python.com^",
+        "resourceTypes": ["script"]
+    }
+}
+
 ]
