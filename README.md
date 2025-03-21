@@ -1,4 +1,5 @@
 **Introduction**
+
 TraduCode is a Chrome extension that automatically translates programming code and instructions from English to Spanish. It's designed to help Spanish-speaking developers and programming students better understand code examples encountered while browsing programming websites, tutorials, and documentation.
 The extension works by identifying code blocks on web pages and translating programming keywords (such as if, for, while, etc.) into their Spanish equivalents, helping users understand programming concepts in their native language while maintaining the integrity of the code structure.
 
@@ -17,16 +18,18 @@ The extension works by identifying code blocks on web pages and translating prog
 - Microsoft Edge (version 88 or higher) or any Chromium-based browser supporting Manifest V3
   
 **Installation Steps**
+
 **Manual Installation (Developer Mode)**
 1. Download the extension files from the GitHub repository or unzip the provided package
 2. Open Chrome and navigate to chrome://extensions/
 3. Enable "Developer mode" using the toggle in the top-right corner
 4. Click "Load unpacked" and select the folder containing the extension files
 5. The TraduCode icon will appear in your browser's extension toolbar
-**
-Getting Started**
+
+**Getting Started**
 
 After installation, TraduCode is enabled by default. Visit any website containing code examples to see the extension in action.
+
 **Using the Extension**
 
 1. Enabling/Disabling Translation: Click the TraduCode icon in your browser toolbar to open the popup, then click the "Enable Translations" or "Disable Translations" button to toggle the extension's functionality.
@@ -38,13 +41,18 @@ After installation, TraduCode is enabled by default. Visit any website containin
 - GeeksforGeeks
 
 **Data Privacy**
+
 TraduCode respects user privacy:
 - No user data is collected or transmitted
 - All translations happen locally in the browser
 - No external services are used for translation
+  
 **Contributing**
+  
 We welcome contributions to improve TraduCode!
+
 **Contribution Guidelines**
+
 1. Code Style:
   - Follow the established code style
   - Use descriptive variable and function names
