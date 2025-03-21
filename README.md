@@ -1,3 +1,4 @@
+![alt text](https://github.com/JardinaGomez/TraduCode/blob/main/imgs/extension.png "TraduCode Extension Logo, A colorful T,")
 # **Introduction**
 
 
@@ -8,6 +9,7 @@ The extension works by identifying code blocks on web pages and translating prog
 
 ## **Key Features**
 - Real-time translation of programming keywords in code blocks
+  ![alt text](https://github.com/JardinaGomez/TraduCode/blob/main/imgs/prototype2.png "Image of a python code snippet and a poput with the same code but keywords, in blue, translated to Spanish")
 - Tooltip display of translated code on hover
 - Toggle translation on/off with a single click
 - Support for Python( for now)
