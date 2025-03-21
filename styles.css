@@ -1,23 +1,40 @@
-.translation-tooltip {
+.traducode-tooltip {
+    text-decoration: blue;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.85);
-    color: #fff;
-    padding: 8px;
-    border-radius: 6px;
-    font-size: 14px;
-    white-space: nowrap;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 9999;
-    transition: opacity 0.2s ease-in-out;
+    z-index: 2147483647;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 13px;
+    line-height: 1.4;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 60vw;
+    overflow: auto;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
 }
 
-.translation-tooltip::after {
-    content: "";
+.traducode-highlight {
+    background: rgba(255, 229, 100, 0.2);
+    border-bottom: 1px dashed #ffd700;
+}
+
+.traducode-tooltip-arrow {
     position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 6px;
-    border-style: solid;
-    border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
+    width: 8px;
+    height: 8px;
+    background: inherit;
+    transform: rotate(45deg);
+}
+
+.translated-word {
+    /*make translated work more code like, make font bright blue and bold */
+    color: #007bff;
+    font-weight: bold;
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 13px;
+
+
 }

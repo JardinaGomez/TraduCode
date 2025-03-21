@@ -99,7 +99,7 @@
                         'if': 'sí',
                         'else': 'sino',
                         'for': 'para',
-                        'while': 'mientras', 
+                        'while': 'mientras',
                         'function': 'función',
                         'return': 'retornar',
                         'print': 'imprimir',
@@ -171,7 +171,7 @@
 
         console.log(`TraduCode found ${codeElements.length} code blocks`);
         codeElements.forEach(element => {
-            // Add hover event listeners
+            // Add hover event listeners and 
             element.addEventListener('mouseover', handleCodeHover);
             element.addEventListener('mouseout', handleCodeOut);
             element.addEventListener('mousemove', handleCodeMove);
@@ -331,15 +331,25 @@
     // Display tooltip with translated code
     function showTooltip(event, translatedCode) {
         removeTooltip(); // Remove any existing tooltip
-
+    
         tooltip = document.createElement('div');
         tooltip.className = 'traducode-tooltip';
-        tooltip.textContent = translatedCode;
         tooltip.setAttribute('data-traducode', 'tooltip');
-
+    
+        // Highlight translated words
+        const highlightedCode = translatedCode.replace(/(\b\w+\b)/g, (match, word) => {
+            const originalWord = Object.keys(translations).find(key => translations[key].toLowerCase() === word.toLowerCase());
+            if (originalWord) {
+                return `<span class="translated-word" title="${originalWord}">${word}</span>`;
+            }
+            return word;
+        });
+    
+        tooltip.innerHTML = highlightedCode;
         document.body.appendChild(tooltip);
         positionTooltip(event);
     }
+    
 
     // Position tooltip near the mouse cursor
     function positionTooltip(event) {

@@ -1,39 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>TraduCode</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 10px;
-      text-align: center;
-    }
-
-    #toggle {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-
-    #toggle:hover {
-      background-color: #0056b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TraduCode Control</title>
+    <link rel="stylesheet" href="popup.css">
 </head>
-
 <body>
-  <h1>TraduCode</h1>
-  <button id="toggle">Enable Translations</button>
+    <div class="container">
+        <div class="header">
+            <img src="icons/icon48.png" alt="TraduCode Logo" class="logo">
+             <!-- need to center this -->
+            <h1>TraduCode</h1>
+        </div>
+        
+        <div class="controls">
+            <label class="switch">
+                <input type="checkbox" id="toggle">
+                <span class="slider"></span>
+            </label>
+            <span id="statusText">Enabled</span>
+        </div>
+        
+        <!-- <div class="stats">
+            <p>Translations Applied: <span id="translationCount">0</span></p>
+            <p>Ads Blocked: <span id="adsBlocked">0</span></p>
+        </div> -->
+    </div>
+    <script src="popup.js"></script>
 </body>
-<script src="popup.js"></script>
-
 </html>

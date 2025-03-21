@@ -1,40 +1,29 @@
 [
-  {
-      "id": 1,
-      "priority": 1,
-      "action": { "type": "block" },
-      "condition": {
-          "urlFilter": "||doubleclick.net^",
-          "resourceTypes": ["script", "xmlhttprequest"]
-      }
-  },
-  {
-      "id": 2,
-      "priority": 1,
-      "action": { "type": "block" },
-      "condition": {
-          "urlFilter": "||googlesyndication.com^",
-          "resourceTypes": ["sub_frame", "script"]
-      }
-  },
-  {
-      "id": 3,
-      "priority": 1,
-      "action": { "type": "block" },
-      "condition": {
-          "urlFilter": "||ads.linkedin.com^",
-          "resourceTypes": ["image", "script"]
-      }
-  },
-  
-  {
-    "id": 100,
-    "priority": 1,
-    "action": { "type": "allow" },
-    "condition": {
-        "urlFilter": "||loops-in-python.com^",
-        "resourceTypes": ["script"]
+    {
+        "id": 1,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||doubleclick.net^",
+            "resourceTypes": ["script", "xmlhttprequest"]
+        }
+    },
+    {
+        "id": 2,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||googlesyndication.com^",
+            "resourceTypes": ["sub_frame", "script"]
+        }
+    },
+    {
+        "id": 3,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||ads.linkedin.com^",
+            "resourceTypes": ["image", "script"]
+        }
     }
-}
-
 ]

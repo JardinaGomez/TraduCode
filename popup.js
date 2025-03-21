@@ -1,17 +1,33 @@
-chrome.storage.local.get(["enabled"], (data) => {
-    console.log("Stored state:", data.enabled);
-    const isEnabled = data.enabled ?? true;
-    document.getElementById("toggle").innerText = isEnabled ? "Disable Translations" : "Enable Translations";
-});
+document.addEventListener('DOMContentLoaded', async () => {
+    const toggle = document.getElementById('toggle');
+    const statusText = document.getElementById('statusText');
+    //const translationCount = document.getElementById('translations');
+    //  const adsBlocked = document.getElementById('adsBlocked');
 
-document.getElementById("toggle").addEventListener("click", () => {
-    chrome.storage.local.get(["enabled"], (data) => {
-        console.log("Before toggle:", data.enabled);
-        const newState = data.enabled === undefined ? true : !data.enabled;
+    // Load initial state
+    const { enabled } = await chrome.storage.local.get('enabled');
+    toggle.checked = enabled;
+    statusText.textContent = enabled ? 'Enabled' : 'Disabled';
 
-        chrome.storage.local.set({ enabled: newState }, () => {
-            console.log("After toggle:", newState);
-            document.getElementById("toggle").innerText = newState ? "Disable Translations" : "Enable Translations";
-        });
+    // Setup toggle handler
+    toggle.addEventListener('change', async () => {
+        const newState = toggle.checked;
+        await chrome.storage.local.set({ enabled: newState });
+        statusText.textContent = newState ? 'Enabled' : 'Disabled';
+
+        // Send message to active tab
+        const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+        if (tab?.id) {
+            chrome.tabs.sendMessage(tab.id, {
+                action: 'toggleEnabled',
+                enabled: newState
+            });
+        }
     });
+
+    // Load stats
+    // chrome.storage.local.get(['translations', 'adsBlocked'], (data) => {
+    //     translationCount.textContent = data.translationCount || 0;
+    //     adsBlocked.textContent = data.adsBlocked || 0;
+    // });
 });
