@@ -1,78 +1,77 @@
 {
     "keywords": {
-      "mientras": "while",
-      "si": "if",
-      "sino": "else",
-      "fin": "end",
-      "poner": "print",
-      "imprimir": "print",
-      "imprimirf": "printf",
-      "romper": "break",
-      "repetir": "repeat",
-      "hasta": "until",
-      "desde": "for",
-      "elegir": "switch",
-      "caso": "case",
-      "defecto": "default",
-      "funcion": "function",
-      "retorno": "return",
-      "global": "global",
-      "cierto": "true",
-      "falso": "false"
+        "mientras": "while",
+        "si": "if",
+        "sino": "else",
+        "fin": "end",
+        "poner": "print",
+        "imprimir": "print",
+        "imprimirf": "printf",
+        "romper": "break",
+        "repetir": "repeat",
+        "hasta": "until",
+        "desde": "for",
+        "elegir": "switch",
+        "caso": "case",
+        "defecto": "default",
+        "funcion": "function",
+        "retorno": "return",
+        "global": "global",
+        "cierto": "true",
+        "falso": "false"
     },
     "operators": {
-      "y": "and",
-      "o": "or",
-      "no": "not",
-      "..": "+",
-      "++": "++",
-      "==": "==",
-      "<": "<",
-      ">": ">",
-      "<=": "<=",
-      ">=": ">=",
-      "!=": "!=",
-      "||": "||"
+        "y": "and",
+        "o": "or",
+        "no": "not",
+        "..": "+",
+        "++": "++",
+        "==": "==",
+        "<": "<",
+        ">": ">",
+        "<=": "<=",
+        ">=": ">=",
+        "!=": "!=",
+        "||": "||"
     },
     "dataTypes": {
-      "entero": "integer",
-      "decimal": "float",
-      "cadena": "string",
-      "booleano": "boolean",
-      "lista": "list",
-      "diccionario": "dictionary"
+        "entero": "integer",
+        "decimal": "float",
+        "cadena": "string",
+        "booleano": "boolean",
+        "lista": "list",
+        "diccionario": "dictionary"
     },
     "functions": {
-      "promedio": "average",
-      "max": "max",
-      "min": "min",
-      "factorial": "factorial",
-      "fibo_rec": "fibo_recursive",
-      "fibo_iter": "fibo_iterative"
+        "promedio": "average",
+        "max": "max",
+        "min": "min",
+        "factorial": "factorial",
+        "fibo_rec": "fibo_recursive",
+        "fibo_iter": "fibo_iterative"
     },
     "comments": {
-      "#": "//",
-      "/*": "/*",
-      "*/": "*/"
+        "#": "//",
+        "/*": "/*",
+        "*/": "*/"
     },
     "mathOperations": {
-      "suma": "addition",
-      "resta": "subtraction",
-      "multiplicacion": "multiplication",
-      "division": "division",
-      "modulo": "modulus"
+        "suma": "addition",
+        "resta": "subtraction",
+        "multiplicacion": "multiplication",
+        "division": "division",
+        "modulo": "modulus"
     },
     "controlFlow": {
-      "romper": "break",
-      "continuar": "continue"
+        "romper": "break",
+        "continuar": "continue"
     },
     "specialConstants": {
-      "_VERSION_": "_VERSION_",
-      "_COPYRIGHT_": "_COPYRIGHT_"
+        "_VERSION_": "_VERSION_",
+        "_COPYRIGHT_": "_COPYRIGHT_"
     },
     "dataStructures": {
-      "lista": "list",
-      "diccionario": "dictionary"
+        "lista": "list",
+        "diccionario": "dictionary"
     }
-  }
-  
+}
