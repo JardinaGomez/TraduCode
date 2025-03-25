@@ -19,6 +19,7 @@
         "global": "global",
         "cierto": "true",
         "falso": "false"
+        
     },
     "operators": {
         "y": "and",

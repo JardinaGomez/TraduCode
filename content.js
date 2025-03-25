@@ -4,15 +4,18 @@
  */
 
 (async function () {
-    'use strict';
+    'use strict'; // Enforce strict mode, helps catch common coding errors and "bad" syntax
 
     // Configuration and state
     const EXTENSION_ID = chrome.runtime.id;
-    let isEnabled = true;
-    let translations = {};
-    let observer = null;
-    let tooltip = null;
-    let tooltipTimer = null;
+    let isEnabled = true; // 
+    let translations = {}; // Translations dictionary
+    // MutationObserver provides a way to react to changes in the DOM, DOM(Document Object Model) is a programming interface for HTML and XML documents.
+    let observer = null; // MutationObserver for dynamically added code blocks 
+    let tooltip = null; // Tooltip element for displaying translated code
+    let tooltipTimer = null; // Timer for debouncing tooltip creation 
+
+    // Checking if the script is running in an iframe
     const isInIframe = window.self !== window.top;
 
     // CSS styles for tooltip
@@ -42,12 +45,12 @@
         }
     `;
 
-    // Initialize the extension
+    // Initialize the extension 
     async function initialize() {
         try {
             // Load extension state
-            const data = await chrome.storage.local.get(['enabled']);
-            isEnabled = data.enabled === undefined ? true : data.enabled;
+            const data = await chrome.storage.local.get(['enabled']); // Getting value of 'enabled' from local storage
+            isEnabled = data.enabled === undefined ? true : data.enabled; // If 'enabled' is not defined, set it to true
 
             // Log initialization status
             console.log(`TraduCode initialized in ${isInIframe ? 'iframe' : 'main frame'} (Enabled: ${isEnabled})`);
@@ -237,7 +240,7 @@
         if (tagName === 'pre' || tagName === 'code') return true;
 
         const className = element.className || '';
-        return className.includes('code') ||
+        return className.includes('code') || // look up more class names to add for FUTURE
             className.includes('language-') ||
             element.classList.contains('CodeMirror');
     }
@@ -306,18 +309,19 @@
 
     // Translate code using the translations dictionary
     function translateCode(code) {
+        // checking for code
         if (!code || typeof code !== 'string' || Object.keys(translations).length === 0) {
             return code;
         }
 
         try {
             // Use regex to split code into tokens while preserving whitespace and punctuation
-            const pattern = new RegExp(`(${Object.keys(translations).join('|')})\\b`, 'g');
+            const pattern = new RegExp(`(?<!["'#])(?:${Object.keys(translations).join('|')})\\b(?!["'#])`, 'g'); // this regex ignores words in quotes or comments (e.g. 'if', 'else', 'for')
 
             return code.replace(pattern, match => {
-                return translations[match] || match;
+                return translations[match] || match; // replace with translation or keep original word
             });
-        } catch (error) {
+        } catch (error) { // this catches if there is an error in the translation
             console.error('Translation error:', error);
             return code;
         }
@@ -331,25 +335,25 @@
     // Display tooltip with translated code
     function showTooltip(event, translatedCode) {
         removeTooltip(); // Remove any existing tooltip
-    
+
         tooltip = document.createElement('div');
         tooltip.className = 'traducode-tooltip';
         tooltip.setAttribute('data-traducode', 'tooltip');
-    
+
         // Highlight translated words
         const highlightedCode = translatedCode.replace(/(\b\w+\b)/g, (match, word) => {
             const originalWord = Object.keys(translations).find(key => translations[key].toLowerCase() === word.toLowerCase());
             if (originalWord) {
-                return `<span class="translated-word" title="${originalWord}">${word}</span>`;
+                return `<span class="translated-word" title="${originalWord}">${word}</span>`; // replace with highlighted word
             }
-            return word;
+            return word; // keeping original word
         });
-    
-        tooltip.innerHTML = highlightedCode;
-        document.body.appendChild(tooltip);
-        positionTooltip(event);
+
+        tooltip.innerHTML = highlightedCode; // Set tooltip content
+        document.body.appendChild(tooltip); // Append tooltip to body 
+        positionTooltip(event); // Position tooltip near cursor
     }
-    
+
 
     // Position tooltip near the mouse cursor
     function positionTooltip(event) {

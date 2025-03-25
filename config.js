@@ -13,6 +13,22 @@ export const TRANSLATIONS = {
     'null': 'nulo',
     'undefined': 'indefinido',
     'do': 'hacer',
+    'Flase': 'falso',
+    'True': 'verdad',
+    'None': 'ninguno',
+    'and': 'y',
+    'or': 'o',
+    'not': 'no',
+    'switch': 'cambiar',
+    'case': 'caso',
+    'default': 'por defecto',
+    'def': 'definir',
+    'class': 'clase',
+    'continue': 'continuar',
+    'assert': 'afirmar',
+    'async': 'asíncrono',
+    'break': 'romper',
+    'next': 'siguiente',
 
     // Data types
     'function': 'función',
@@ -28,7 +44,7 @@ export const TRANSLATIONS = {
     // Error handling
     'try': 'intentar',
     'catch': 'capturar',
-    'finally': 'finalmente',
+    'finally': 'fín',
 
     // Access modifiers
     'public': 'público',
