@@ -1,6 +1,6 @@
 export const TRANSLATIONS = {
     // Basic keywords
-    'if': 'sí',
+    'if': 'si',
     'in': 'en',
     'else if': 'sino si',
     'else': 'sino',
@@ -13,8 +13,8 @@ export const TRANSLATIONS = {
     'null': 'nulo',
     'undefined': 'indefinido',
     'do': 'hacer',
-    'Flase': 'falso',
-    'True': 'verdad',
+    'False': 'Falso',
+    'True': 'Verdad',
     'None': 'ninguno',
     'and': 'y',
     'or': 'o',

@@ -56,6 +56,7 @@
             console.log(`TraduCode initialized in ${isInIframe ? 'iframe' : 'main frame'} (Enabled: ${isEnabled})`);
 
             // Load translations
+            // await is used to wait for the promise to resolve 
             await loadTranslations();
 
             // Apply styles to the page
@@ -169,7 +170,7 @@
     function processExistingCodeBlocks() {
         if (!isEnabled) return;
 
-        const selector = 'pre, code, .code, .CodeMirror, [class*="code-"], [class*="language-"]';
+        const selector = 'pre, code, .code, .CodeMirror, [class*="code-"],[class*="-code"], [class*="language-"]';
         const codeElements = document.querySelectorAll(selector);
 
         console.log(`TraduCode found ${codeElements.length} code blocks`);
@@ -316,9 +317,10 @@
 
         try {
             // Use regex to split code into tokens while preserving whitespace and punctuation
+
             const pattern = new RegExp(`(?<!["'#])(?:${Object.keys(translations).join('|')})\\b(?!["'#])`, 'g'); // this regex ignores words in quotes or comments (e.g. 'if', 'else', 'for')
 
-            return code.replace(pattern, match => {
+            return code.replace(pattern, match => { // this replaces the matched words with their translations
                 return translations[match] || match; // replace with translation or keep original word
             });
         } catch (error) { // this catches if there is an error in the translation
@@ -342,8 +344,8 @@
 
         // Highlight translated words
         const highlightedCode = translatedCode.replace(/(\b\w+\b)/g, (match, word) => {
-            const originalWord = Object.keys(translations).find(key => translations[key].toLowerCase() === word.toLowerCase());
-            if (originalWord) {
+            const originalWord = Object.keys(translations).find(key => translations[key].toLowerCase() === word.toLowerCase()); // this finds the original word from the translation
+            if (originalWord) { // if original word is found
                 return `<span class="translated-word" title="${originalWord}">${word}</span>`; // replace with highlighted word
             }
             return word; // keeping original word
