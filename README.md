@@ -1,4 +1,8 @@
 ![alt text](https://github.com/JardinaGomez/TraduCode/blob/main/imgs/extension.png "TraduCode Extension Logo, A colorful T,")
+
+# **Meet Alex**
+Let me introduce you to Alex, Alex recently came to the states from Ecuador, ready to beign a new chaper in his life. Alex was prepared to face a significant language barrier, knowing that learning English would be key to pursuing his education in the US. But nothing could prepare him for when he walked into his very first computer science class- only to find himself naiviagting not one, but two new languages: English and programming. This extension was created for students like Alex 
+
 # **Introduction**
 
 
